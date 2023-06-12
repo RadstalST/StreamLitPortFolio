@@ -16,12 +16,10 @@ from langchain import LLMMathChain
 
 
 load_dotenv()
-if "OPENAI_API_KEY" in os.environ:
+try:
     OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-else:
+except:
     OPENAI_API_KEY = open_ai_key.render()
-
-
 
 
 st.title("🦾 AI Agent demo")
