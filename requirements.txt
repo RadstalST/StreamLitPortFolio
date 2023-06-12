@@ -7,3 +7,8 @@ python-dotenv
 wikipedia  #langchain tools for searching wikipedia
 duckduckgo-search #langchain tools for searching with duck duck go
 
+plotly
+pandas
+numpy
+scipy
+scikit-learn
