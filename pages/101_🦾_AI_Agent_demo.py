@@ -18,6 +18,8 @@ from langchain import LLMMathChain
 load_dotenv()
 try:
     OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+    if not OPENAI_API_KEY:
+        OPENAI_API_KEY = open_ai_key.render()
 except:
     OPENAI_API_KEY = open_ai_key.render()
 
