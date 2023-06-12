@@ -38,6 +38,38 @@ This is a demo of the AI Agent that I built using OpenAI's API and LangChan.
 st.write("""
 >This demo requires an OpenAI API Key.
 """)
+         
+with st.expander("Inner Workings"):
+    st.write("""
+
+## Inner Workings
+The AI agent works by dividing the task into two parts: planning and execution.
+### 1. Planning
+the AI agent uses the planning model to plan the steps to solve the problem. In this case 
+```python
+planner = load_chat_planner(planner_model,)
+```
+
+### 2. Execution
+the AI agent uses the execution model to execute the plan. In this case
+```python
+executor = load_agent_executor(llm, tools, verbose=True)
+```
+the load_agent_executor function loads the agent executor
+which are able to use the provided tools:
+- Web Search > DuckDuckGo
+- Wikipedia > Wikipedia
+- Calculator > LLMMathChain
+
+### 3. Putting it all together
+```python
+agent = PlanAndExecute(planner=planner, executor=executor, verbose=True)
+```
+
+## Conclusion
+The AI agent is able to answer questions based on the information on the internet by using DuckDuckGo's API and Wikipedia's API.
+
+""")
 if OPENAI_API_KEY == "":
     st.warning("Please enter your OpenAI API Key in the sidebar.")
     st.stop()
@@ -83,37 +115,7 @@ with st.form(key="form"):
     question = st.text_input("Question:",value="What is Apple Vision Pro Price divided by 0.4 ?")
     submit = st.form_submit_button("Ask")
 
-with st.expander("Inner Workings"):
-    st.write("""
 
-## Inner Workings
-The AI agent works by dividing the task into two parts: planning and execution.
-### 1. Planning
-the AI agent uses the planning model to plan the steps to solve the problem. In this case 
-```python
-planner = load_chat_planner(planner_model,)
-```
-
-### 2. Execution
-the AI agent uses the execution model to execute the plan. In this case
-```python
-executor = load_agent_executor(llm, tools, verbose=True)
-```
-the load_agent_executor function loads the agent executor
-which are able to use the provided tools:
-- Web Search > DuckDuckGo
-- Wikipedia > Wikipedia
-- Calculator > LLMMathChain
-
-### 3. Putting it all together
-```python
-agent = PlanAndExecute(planner=planner, executor=executor, verbose=True)
-```
-
-## Conclusion
-The AI agent is able to answer questions based on the information on the internet by using DuckDuckGo's API and Wikipedia's API.
-
-""")
 if submit:
     with st.spinner("Answering..."):
         answer = get_answer(question)
