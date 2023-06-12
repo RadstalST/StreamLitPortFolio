@@ -103,7 +103,11 @@ tools = [search_tool, wikipedia_tool,math_tool]
 # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 planner = load_chat_planner(planner_model,)
 executor = load_agent_executor(llm, tools, verbose=True)
-agent = PlanAndExecute(planner=planner, executor=executor, verbose=True)
+agent = PlanAndExecute(
+    planner=planner, 
+    executor=executor, 
+    verbose=True,
+    max_iterations=5)
 
 @st.cache_data
 def get_answer(question):
