@@ -16,10 +16,8 @@ from langchain import LLMMathChain
 
 
 load_dotenv()
-
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
-if OPENAI_API_KEY:
-    pass
+if "OPENAI_API_KEY" in os.environ:
+    OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 else:
     OPENAI_API_KEY = open_ai_key.render()
 
