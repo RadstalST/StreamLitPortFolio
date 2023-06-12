@@ -38,7 +38,7 @@ execute_template = PromptTemplate(
     input_variables=["plan", "chat_history"],
     template="""
     Execute the plan step by step.
-
+    and try to be short, concise, and clear.
     Plan: 
     {plan}
 
@@ -105,7 +105,7 @@ tools = [
     )
 ]
 # 2. Agent
-memory = ConversationBufferWindowMemory(memory_key="chat_history", return_messages=True,k=10)
+memory = ConversationBufferWindowMemory(memory_key="chat_history", return_messages=True,k=5)
 plan_chain = ConversationChain(
     llm=llm,
     memory=memory,
@@ -126,7 +126,7 @@ agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
     llm=llm,
     prompt_template=execute_template,
-    max_iterations=5,
+    max_iterations=3,
     tools=tools,
     memory=memory,
     )
