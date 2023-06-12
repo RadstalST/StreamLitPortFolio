@@ -7,7 +7,7 @@ def sidebar_footer():
         st.header("Contact Me")
 
         st.write("""
-        Email:
+        Email: Suchat.tangjarukij@gmail.com
         """)
         components.html(
             constants.linkedin_embed,
