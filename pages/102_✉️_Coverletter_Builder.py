@@ -91,7 +91,6 @@ coverletter_template = PromptTemplate(
 )
 search = DuckDuckGoSearchRun()
 wikipedia = WikipediaAPIWrapper()
-st.warning(OPENAI_API_KEY)
 llm = ChatOpenAI(temperature=temperature,openai_api_key=OPENAI_API_KEY)
 tools = [
     Tool(
