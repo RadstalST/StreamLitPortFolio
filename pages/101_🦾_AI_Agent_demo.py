@@ -77,8 +77,8 @@ else:
     st.info("OpenAI API Key is set.")
 
 #define model
-llm = ChatOpenAI(temperature=0.5, model="gpt-3.5-turbo")
-planner_model = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
+llm = ChatOpenAI(temperature=0.5, model="gpt-3.5-turbo",openai_api_key=OPENAI_API_KEY)
+planner_model = ChatOpenAI(temperature=0, model="gpt-3.5-turbo",openai_api_key=OPENAI_API_KEY)
 llm_math = LLMMathChain.from_llm(llm, verbose=True)
 search = DuckDuckGoSearchRun()
 wikipedia = WikipediaAPIWrapper()
