@@ -17,10 +17,13 @@ from langchain import LLMMathChain
 
 load_dotenv()
 try:
+    #if set in env
     OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+    #if set but empty
     if not OPENAI_API_KEY:
         OPENAI_API_KEY = open_ai_key.render()
 except:
+    #if not set
     OPENAI_API_KEY = open_ai_key.render()
 
 
