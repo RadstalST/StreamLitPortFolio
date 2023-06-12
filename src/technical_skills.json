@@ -1,0 +1,70 @@
+{
+    "Data analysis and management": [
+      "Data analysis",
+      "Machine learning",
+      "Database management",
+      "SQL",
+      "MySQL",
+      "Oracle",
+      "MongoDB",
+      "Hadoop",
+      "Spark",
+      "Databricks",
+      "Data Factory",
+      "Apache Airflow"
+    ],
+    "Web and software development": [
+      "Web development",
+      "Software engineering",
+      "Front-end development",
+      "Back-end development",
+      "API development",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Python",
+      "C++",
+      "R",
+      "Java",
+      "Delphi",
+      "Streamlit",
+      "Django"
+    ],
+    "Cloud computing and DevOps": [
+      "Cloud computing",
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Git"
+    ],
+    "Data visualization and analysis tools": [
+      "Data visualization",
+      "Tableau",
+      "D3.js"
+    ],
+    "Machine learning and AI": [
+      "Scikit-learn",
+      "TensorFlow",
+      "Keras",
+      "PyTorch",
+      "LangChain",
+      "OpenAI",
+      "AI agents"
+    ],
+    "Project management and collaboration": [
+      "Project management",
+      "Jira",
+      "Trello",
+      "Asana",
+      "Scrum",
+      "Kanban"
+    ],
+    "Other technical skills": [
+      "Testing and quality assurance",
+      "Linux system administration",
+      "Mobile app development",
+      "User experience design"
+    ]
+  }

@@ -1,0 +1,159 @@
+{
+    "events":[
+        {
+            "start_date":{
+                "year":2014
+            },
+            "end_date":{
+                "year":2018
+            },
+            "text":{
+                "headline":"Bachelor of Engineering: Robotics And Automation ",
+                "text":"<p>Immersed in this captivating field, I embarked on notable projects that exemplify my dedication and passion. One such project involved designing a Cartesian Robotics Wooden Block Sorter, a meticulous endeavor that required me to engineer a system capable of efficiently organizing wooden blocks of various shapes and sizes. Another remarkable endeavor was the creation of Armatus, a 4-DOF Arm Exoskeleton propelled by a sling mechanism.</p>"
+            },
+            "group":"education"
+        },
+        {
+            "start_date":{
+                "year":2014
+            },
+            "text":{
+                "headline":"Micro robot competitions",
+                "text":"<p>In 2014, I enthusiastically participated in micro robot competitions, where the challenges were as captivating as they were intricate. One of the standout events was the thrilling maze race, where tiny robots measuring just 1x1 inch navigated intricate mazes with precision and speed. It was an exhilarating experience, as competitors showcased their technical expertise and strategic thinking to guide their micro robots through the maze's twists and turns. The competition provided a platform for innovation and showcased the incredible capabilities of these small but mighty machines. It was a true testament to the endless possibilities that can be achieved in the world of robotics.</p>"
+            },
+            "group":"competitions"
+        },
+        {
+            "start_date":{
+                "year":2016
+            },
+            "text":{
+                "headline":"Makerthon 2018 participation",
+                "text":"<p>In the Makerthon of 2018, I immersed myself in a thrilling challenge focused on logistics and SME solutions. This intense event spanned two days and brought together passionate makers and innovators. Collaborating with a dynamic team, we set out to develop a solution that addressed the specific logistical needs of small and medium-sized enterprises (SMEs). With limited time and resources, we combined our skills and creativity to design an innovative solution that streamlined processes and improved efficiency for SMEs. The Makerthon was an incredible opportunity to push our boundaries, think on our feet, and showcase our ability to deliver impactful solutions within tight time constraints.</p>"
+            },
+            "group":"competitions"
+        },
+        {
+            "start_date":{
+                "year":2015
+            },
+            "text":{
+                "headline":"Joined MintLab",
+                "text":"<p>MintLab, initially created by Dr. Chanikarn Wong, was later transformed into EATLAB,an exciting evolution in the realm of STEM education. This groundbreaking initiative continues to provide KMUTT students with invaluable hands-on experience in programming, robotics, and STEM education. EATLab offers a dynamic platform for students to explore the fascinating world of technology and cultivate their skills. This transformation represents an exciting milestone in empowering aspiring engineers and programmers, fostering innovation, and nurturing a passion for STEM education.</p>"
+            },
+            "group":"employment"
+        },
+        {
+            "start_date":{
+                "year":2018
+            },
+            "text":{
+                "headline":"Hochschule Zittau/Görlitz Reasearch Internship",
+                "text":"<p>I had the incredible opportunity to participate in a research internship at Hochschule Zittau/Görlitz, supported by the prestigious DAAD funding. During this enriching experience, I worked on implementing cutting-edge technologies, focusing on two fascinating projects. Firstly, I delved into the realm of robotics by developing a quadruped robot using Raspberry Pi (RPI). This endeavor allowed me to explore the intricate mechanics and programming involved in creating a versatile robotic platform. Additionally, I had the privilege of working with swarm robots, specifically Kilobots. </p>"
+            },
+            "group":"employment"
+        },
+        {
+            "start_date":{
+                "year":2019
+            },
+    
+            "text":{
+                "headline":"Codustry Interactive Art Advisor",
+                "text":"<p>As the Interactive Art Advisor at Codustry, I specialized in leveraging full-body motion capture technology to create immersive experiences. Using cutting-edge tools like the Kinect camera and Unity3D, I brought art to life by capturing the movements and gestures of individuals and translating them into interactive digital artwork. This innovative approach allowed users to engage with art in a whole new way, blurring the lines between technology and creativity. Through my expertise in full-body motion capture and my proficiency in Unity3D, I guided artists and creators in exploring the possibilities of interactive art, enabling them to push the boundaries of expression and engagement.</p>"
+            },
+            "group":"employment"
+        },
+        {
+            "start_date":{
+                "year":2018,
+                "month":3
+            },
+            "end_date":{
+                "year":2019,
+                "month":12
+            },
+            "text":{
+                "headline":"Technologist at EATLAB",
+                "text":"<p>At EATLAB, I served as a technologist, driving transformative projects in the dining industry. I developed and deployed an AI camera system across Singapore, collecting valuable restaurant customer data for informed decision-making. Additionally, I played a key role in implementing feature extraction capabilities for smart tables, including sound recognition, object detection, and movement recognition. These innovations revolutionized the dining experience, enabling personalized services and enhanced operational efficiency. My time at EATLAB was marked by impactful contributions that merged technology and gastronomy to shape the future of dining.</p>"
+            },
+            "group":"employment"
+        },
+        {
+            "start_date":{
+                "year":2019,
+                "month":12
+            },
+            "end_date":{
+                "year":2022,
+                "month":3
+            },
+            "text":{
+                "headline":"Senior Data Specialist at Allianz Ayudhya (Allianz Thailand)",
+                "text":"<p>As a Senior Data Specialist at Allianz Ayudhya, my contributions were instrumental in driving impactful results. I led the successful COVID-19 work-from-home transformation, implemented strategies to increase premium upselling by 8%, and saved the company approximately 40 million THB (equivalent to 2 million AUD) through effective fraud detection. Furthermore, by promoting influenza vaccination, we prevented illness-related claims, resulting in substantial cost savings. These achievements exemplify the power of data-driven decision-making and highlight my commitment to delivering tangible value and protecting the company's interests.</p>"
+            },
+            "group":"employment"
+        },
+        {
+            "start_date":{
+                "year":2022
+            },
+            "end_date":{
+                "year":2024
+            },
+            "text":{
+                "headline":"Master of Data Science",
+                "text":"<p>Motivated by a desire to stay ahead in my professional field, I made the decision to pursue a Master of Data Science at Swinburne University. Despite having previous experience as a working professional, I recognized the rapid advancements in the field of data science and felt the need to enhance my skills and knowledge. This pursuit led me to relocate to Australia, where I immersed myself in a rigorous and comprehensive program that allowed me to gain cutting-edge expertise in data science. The decision to undertake this master's degree was driven by my determination to remain competitive and make significant contributions in the dynamic field of data science.</p>"
+            },
+            "group":"education"
+        },
+        {
+            "start_date":{
+                "year":2023,
+                "month":6
+            },
+            "text":{
+                "headline":"Lablab.ai AI Agents Hackathon 2023",
+                "text":"<p>I am thrilled to have joined the Lablab.ai AI Agents Hackathon 2023 with my <a href='https://lablab.ai/event/ai-agents-hackathon/thebanggog/hypercompare-ai'>groundbreaking creation</a>, HyperCompare AI. This game-changing hyperintelligent solution has the power to transform the way we compare products. Using lightning speed and unmatched accuracy, HyperCompare AI collects data from e-commerce websites, expert reviews, and customer feedback platforms. It then analyzes and synthesizes this information, providing comprehensive and unbiased product comparisons. With HyperCompare AI, consumers can say goodbye to hours of manual research and embrace the future of smart shopping. I am excited to showcase the transformative potential of HyperCompare AI in the competition, as it paves the way for a new era of informed choices and shopping excellence.</p>"
+            },
+            "group":"competitions"
+            
+        },
+        {
+            "start_date":{
+                "year":2019,
+                "month":6
+            },
+            "text":{
+                "headline":"Shopee SEA NLP competition",
+                "text":"<p>I proudly participated in the Shopee SEA NLP competition, where I took on the challenge of extracting Tagalog addresses from a vast dataset. Despite having no prior experience in natural language processing (NLP), I harnessed the power of Continuous Bag-of-Words (CBOW) and part-of-speech (POS) tagging techniques to tackle this complex task. Through my dedication and perseverance, I achieved a remarkable top 20 placement in the competition, surpassing expectations and showcasing my ability to quickly learn and apply new skills. This experience was not only a testament to my adaptability but also a demonstration of the limitless possibilities that arise when passion and determination meet with the right opportunity.</p>"
+            },
+            "group":"competitions"
+            
+        }
+    ],
+    "eras":[
+        {
+            "start_date":{
+                "year":2014
+            },
+            "end_date":{
+                "year":2018
+            },
+            "text":{
+                "headline":"Bachelor of Robotics and automation engineering"
+            }
+        },
+        {
+            "start_date":{
+                "year":2022
+            },
+            "end_date":{
+                "year":2024
+            },
+            "text":{
+                "headline":"Master of Data Science"
+            }
+        }
+    ]
+}
