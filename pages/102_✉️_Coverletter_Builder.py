@@ -92,11 +92,7 @@ job_posting_and_resume_summary_template = PromptTemplate(
 
     ## Job requirements: [job_requirements]
 
-    ## Job description: [job_description]
 
-    ## Job location: [job_location]
-
-    
     # Resume summary:
 
     ## Relevant experience: [relevant_experience]
@@ -129,6 +125,23 @@ coverletter_template = PromptTemplate(
 
     """
 )
+
+plan_summary_template = PromptTemplate(
+    input_variables=["input","chat_history"],
+    template="""
+
+    {input}
+
+    History:
+
+    {chat_history}
+
+    think about the plan and summary:
+"""
+
+)
+
+
 search = DuckDuckGoSearchRun()
 wikipedia = WikipediaAPIWrapper()
 llm = ChatOpenAI(temperature=temperature,openai_api_key=OPENAI_API_KEY)
@@ -145,7 +158,7 @@ tools = [
     )
 ]
 # 2. Agent
-memory = ConversationBufferWindowMemory(memory_key="chat_history", k=10,return_messages=True)
+memory = ConversationBufferWindowMemory(memory_key="chat_history", k=6,return_messages=True)
 plan_chain = LLMChain(
     llm=llm,
     prompt=plan_creation_prompt_template,
@@ -164,7 +177,13 @@ coverletter_chain = ConversationChain(
     prompt=coverletter_template,
     output_key="coverletter",
 )
-
+plan_summary_chain = ConversationChain(
+    llm=llm,
+    memory=memory,
+    input_key="input",
+    prompt=plan_summary_template,
+    output_key="plan_summary",
+)
 
 agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
@@ -201,6 +220,14 @@ def get_coverletter(resume_and_job_posting,temp=temperature):
         input = resume_and_job_posting,
     )
     return ret
+
+@st.cache_data
+def get_plan_summary(plan_summary,temp=temperature):
+    ret = plan_summary_chain.run(
+        input = plan_summary
+    )
+
+    return ret
 st.title("🦾 AI Agent Coverletter Builder")
 
 
@@ -226,8 +253,17 @@ if submit_button:
 
 
     summary = get_job_posting_and_resume_summary(input_str,temp=temperature)
+
+
+    
     with st.expander("Summary"):
         st.write(summary)
+    plan_summary = get_plan_summary(f"""
+    {plan}
+    {summary}
+    """,temp=temperature)
+    with st.expander("Plan Summary"):
+        st.write(plan_summary)
 
     plan_excution = get_answer(plan,temp=temperature)
    
