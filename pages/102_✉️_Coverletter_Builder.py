@@ -174,7 +174,7 @@ if submit_button:
     with st.expander("Plan"):
         st.write(plan)
 
-    plan_excution = get_answer(input_str)
+    plan_excution = get_answer(plan)
    
     with st.expander("Plan Execution",expanded=True):
         st.write(plan_excution)
