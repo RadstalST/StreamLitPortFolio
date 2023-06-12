@@ -11,6 +11,6 @@ def sidebar_footer():
         """)
         components.html(
             constants.linkedin_embed,
-            height=200
+            height=600
         )
 
