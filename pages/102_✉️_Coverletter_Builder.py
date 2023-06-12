@@ -6,7 +6,7 @@ import os
 # langchain stack
 from langchain import PromptTemplate
 from langchain.agents import AgentType, Tool, initialize_agent
-from langchain.chains import ConversationChain
+from langchain.chains import ConversationChain,LLMChain
 from langchain.chains.conversation.memory import ConversationBufferMemory,ConversationBufferWindowMemory
 from langchain.chat_models import ChatOpenAI
 from langchain.tools import DuckDuckGoSearchRun
@@ -30,7 +30,7 @@ if not OPENAI_API_KEY:
     st.warning("Please enter your OpenAI API Key")
     st.stop()
 
-temperature = st.slider("Temperature",0.0,1.0,0.05,0.1)
+temperature = st.slider("Temperature (model creativity)",0.0,1.0,0.05,0.1)
 # AI building block
 
 # 1. Prompt Template
@@ -45,11 +45,12 @@ execute_template = PromptTemplate(
     HISTORY: 
     {chat_history}
 
+    the final output should be a summary of the findings
     """
 )
-
+# improvement 1. split plan and summary
 plan_creation_prompt_template = PromptTemplate(
-    input_variables=["input","chat_history"],
+    input_variables=["input"],
     template="""
     Prepare plan for task execution.
 
@@ -62,21 +63,60 @@ plan_creation_prompt_template = PromptTemplate(
 
     {input}
 
-    HISTORY:
-    {chat_history}
 
     '''
-        Execution plan: [execution_plan]
+# Execution plan: 
 
-        Rest of needed information: [rest_of_needed_information]
+[execution_plan]
+
+# Rest of needed information: 
+
+[rest_of_needed_information]
+
     '''
     """
 )
+job_posting_and_resume_summary_template = PromptTemplate(
+    input_variables=["input"],
+    template="""
+    Prepare summary of the job posting and my resume. 
+
+    based on {input}
+    
+    in the following format:
+
+    '''
+    # Job posting summary:
+
+    ## Job title: [job_title]
+
+    ## Job requirements: [job_requirements]
+
+    ## Job description: [job_description]
+
+    ## Job location: [job_location]
+
+    
+    # Resume summary:
+
+    ## Relevant experience: [relevant_experience]
+
+    ## Relevant skills: [relevant_skills]
+
+    ## Relevant education: [relevant_education]
+
+    ## Relevant projects: [relevant_projects]
+
+    ## Why I am a good fit: [why_i_am_a_good_fit]
+
+
+    '''
+    """)
 
 coverletter_template = PromptTemplate(
     input_variables=["input","chat_history"],
     template="""
-    Resume and job posting:
+    summary:
     {input}
     Prepare cover letter for job application.
     Based on the chat history:
@@ -105,13 +145,17 @@ tools = [
     )
 ]
 # 2. Agent
-memory = ConversationBufferWindowMemory(memory_key="chat_history", return_messages=True,k=5)
-plan_chain = ConversationChain(
+memory = ConversationBufferWindowMemory(memory_key="chat_history", k=10,return_messages=True)
+plan_chain = LLMChain(
     llm=llm,
-    memory=memory,
-    input_key="input",
     prompt=plan_creation_prompt_template,
     output_key="plan",
+)
+
+job_posting_and_resume_summary_chain = LLMChain(
+    llm=llm,
+    prompt=job_posting_and_resume_summary_template,
+    output_key="summary",
 )
 coverletter_chain = ConversationChain(
     llm=llm,
@@ -126,13 +170,13 @@ agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
     llm=llm,
     prompt_template=execute_template,
-    max_iterations=3,
+    max_iterations=5,
     tools=tools,
     memory=memory,
     )
 
 @st.cache_data
-def get_plan(input_str):
+def get_plan(input_str,temp=temperature):
 
     
     plan = plan_chain.run(
@@ -141,12 +185,18 @@ def get_plan(input_str):
     return plan
 
 @st.cache_data
-def get_answer(plan):
+def get_job_posting_and_resume_summary(input_str,temp=temperature):
+    ret = job_posting_and_resume_summary_chain.run(
+        input = input_str,
+    )
+    return ret
+@st.cache_data
+def get_answer(plan,temp=temperature):
     ret = agent(plan)
     return ret
 
 @st.cache_data
-def get_coverletter(resume_and_job_posting):
+def get_coverletter(resume_and_job_posting,temp=temperature):
     ret = coverletter_chain.run(
         input = resume_and_job_posting,
     )
@@ -170,16 +220,21 @@ if submit_button:
         {input_resume}
     """
     # run AI agent
-    plan = get_plan(input_str)
+    plan = get_plan(input_str,temp=temperature)
     with st.expander("Plan"):
         st.write(plan)
 
-    plan_excution = get_answer(plan)
+
+    summary = get_job_posting_and_resume_summary(input_str,temp=temperature)
+    with st.expander("Summary"):
+        st.write(summary)
+
+    plan_excution = get_answer(plan,temp=temperature)
    
-    with st.expander("Plan Execution",expanded=True):
+    with st.expander("Plan Execution",expanded=False):
         st.write(plan_excution)
         
 
-    coverletter = get_coverletter(input_str)
+    coverletter = get_coverletter(summary,temp=temperature)
     with st.expander("Coverletter",expanded=True):
         st.markdown(coverletter)
