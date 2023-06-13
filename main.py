@@ -58,8 +58,6 @@ with st.expander("details", expanded=False):
 
 ### Achievements
 - Successfully implemented data-driven fraud detection algorithms, resulting in a 20% reduction in fraudulent claims and saving the company millions in potential losses.
-- Developed a predictive modeling solution that improved claims forecasting accuracy by 15%, leading to better resource allocation and enhanced customer satisfaction.
-- Collaborated with the underwriting team to develop an automated risk assessment tool, reducing manual efforts by 50% and increasing underwriting efficiency.
 - Led a cross-functional team in the implementation of a new claims management system, resulting in streamlined processes, reduced turnaround time, and improved customer experience.
 - Received recognition for outstanding performance and contributions to data analysis and risk management initiatives within the organization.
 """)
